@@ -47,9 +47,10 @@ function Header() {
         <div className="relative h-5 w-5 flex-shrink-0" >
           <Image src={RedditIcon}  layout="fill" alt="" objectFit="contain" />
         </div>
+        <p className="text-gray-400">Sign In</p>
       </div>
 
-      <p>Sign In</p>
+      
       
     </div>
   )
