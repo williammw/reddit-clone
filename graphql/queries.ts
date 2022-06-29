@@ -1,5 +1,17 @@
 import { gql } from "@apollo/client";
 
+export const GET_ALL_VOTES_BY_POST_ID = gql`
+  query MyQuery($post_id: ID!) {
+    getVotesByPostId(post_id: $post_id) {
+      id
+      upvote
+      created_at
+      username
+      post_id
+    }
+  }
+`;
+
 export const GET_SUBREDDIT_BY_TOPIC = gql`
   query MyQuery($topic: String!) {
     getSubredditListByTopic(topic: $topic) {
