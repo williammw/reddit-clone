@@ -31,6 +31,16 @@ function Post({ post }: Props) {
       post_id: post?.id,
     },
   });
+  useEffect(() => {
+    const votes: Vote[] = data?.getVotesByPostId;
+
+    // Latest vote
+    const vote = votes?.find(
+      (vote) => vote.username == session?.user?.name
+    )?.upvote;
+
+    setVote(vote);
+  }, [data]);
 
   // console.log(error);
 
@@ -58,22 +68,11 @@ function Post({ post }: Props) {
       },
     });
   };
-  console.log("place vote", data);
+  // console.log("place vote", data);
 
   const [addVote] = useMutation(ADD_VOTE, {
     refetchQueries: [GET_ALL_VOTES_BY_POST_ID, "getVotesByPostId"],
   });
-
-  useEffect(() => {
-    const votes: Vote[] = data?.getVotesByPostId;
-
-    // Latest vote
-    const vote = votes?.find(
-      (vote) => vote.username == session?.user?.name
-    )?.upvote;
-
-    setVote(vote);
-  }, [data]);
 
   const displayVotes = (data: any) => {
     const votes: Vote[] = data?.getVotesByPostId;
@@ -81,8 +80,9 @@ function Post({ post }: Props) {
       (total, vote) => (vote.upvote ? (total += 1) : (total -= 1)),
       0
     );
+    console.log(votes);
 
-    if (votes.length === 0) return 0;
+    if (votes?.length === 0) return 0;
     if (displayNumber === 0) {
       return votes[0]?.upvote ? 1 : -1;
     }
@@ -92,7 +92,7 @@ function Post({ post }: Props) {
 
   if (!post)
     return (
-      <div className="flex w-full items-center justify-center p-10 text-xl">
+      <div className="flex  items-center justify-center p-10 text-xl">
         <Jelly size={50} color="#FF4501" />
       </div>
     );
