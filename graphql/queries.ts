@@ -114,6 +114,7 @@ export const GET_POST_BY_POST_ID = gql`
         post_id
         text
         username
+        parent_id
       }
       subreddit {
         created_at
