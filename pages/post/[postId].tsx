@@ -109,7 +109,7 @@ function PostPage() {
                 <TimeAgo datetime={comment.created_at} />
               </p>
               <p className="">{comment.text}</p>
-              <h1>{console.log("this is comment obj", comment)}</h1>
+              {/* <h1>{console.log("this is comment obj", comment)}</h1> */}
             </div>
           </div>
         ))}
