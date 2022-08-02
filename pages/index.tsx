@@ -18,7 +18,7 @@ const Home: NextPage = () => {
   const subreddits: Subreddit[] = data?.getSubredditListLimit;
 
   return (
-    <div className="my-7 mx-auto max-w-5xl">
+    <div className="my-7 mx-auto max-w-5xl py-2 ">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />

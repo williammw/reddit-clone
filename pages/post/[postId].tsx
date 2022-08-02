@@ -59,7 +59,7 @@ function PostPage() {
   return (
     <div className="max-x-5xl mx-auto my-7">
       <Post post={post} />
-      <div className="-mt-1 rounded-b-md border border-t-0 border-gray-300 bg-white p-5 pl-16">
+      <div className="-mt-1 rounded-b-md border border-t-0  border-gray-300 bg-white p-5 pl-16">
         <p className="text-sm">
           Comment as <span className="text-red-500">{session?.user?.name}</span>
         </p>
@@ -109,6 +109,7 @@ function PostPage() {
                 <TimeAgo datetime={comment.created_at} />
               </p>
               <p className="">{comment.text}</p>
+              <h1>{console.log("this is comment obj", comment)}</h1>
             </div>
           </div>
         ))}

@@ -9,6 +9,7 @@ type Comment {
   post_id: ID
   text: String
   username: String
+  parent_id: Int
 }
 
 type Post {

@@ -80,7 +80,7 @@ function Post({ post }: Props) {
       (total, vote) => (vote.upvote ? (total += 1) : (total -= 1)),
       0
     );
-    console.log(votes);
+    // console.log(votes);
 
     if (votes?.length === 0) return 0;
     if (displayNumber === 0) {
